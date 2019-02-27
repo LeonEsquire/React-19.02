@@ -1,22 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Menu from './Menu';
-
+// package imports
+import "core-js/es6/map";
+import "core-js/es6/set";
+import "./styles/styles.scss";
+import React from "react";
+import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+// User imports
+import Unity from "./unifiedModules.jsx";
+//
 class App extends React.Component {
-  render() {
-    const menuItems = [
-      {href:"/", title:"Главная"},
-      {href:"/about", title:"О нас"},
-      {href:"/service", title:"Услуги"},
-      {href:"/contacts", title:"Контакты"}
-    ];
-
-    return <div>
-      <h1>Первое приложение на React</h1>
-      <p>Hello React!</p>
-      <Menu titleMenu="Основное меню сайта" items={menuItems}/>
-    </div>;
-  }
+    render() {
+        return (<><Unity/></>)
+    }
 }
-
-ReactDOM.render(<App/>, document.querySelector('#root'));
+ReactDOM.render(<App/>, document.getElementById("root"))
