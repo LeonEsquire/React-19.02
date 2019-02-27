@@ -1,3 +1,4 @@
 **/.DS_Store
 **/node_modules/
-
+**/dist
+/Lesson3/package-lock.json
