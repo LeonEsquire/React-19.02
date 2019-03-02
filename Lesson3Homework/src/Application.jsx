@@ -9,7 +9,8 @@ import Unity from "./unifiedModules.jsx";
 //
 class App extends React.Component {
     render() {
-        return (<><Unity/></>)
+        return (<Unity/>)
     }
 }
-ReactDOM.render(<App/>, document.getElementById("root"))
+const root = document.getElementById("react-container");
+ReactDOM.render(<App/>, root)
