@@ -1,0 +1,28 @@
+.users {
+  width: 250px;
+  text-align: center;
+  border: 2px solid black;
+  margin: 5px 5px 15px 5px;
+}
+a {
+  text-transform: none;
+  text-decoration: none;
+  font-size: 35px;
+  color: #8B4EDF;
+}
+.to-user {
+  font-size: 20px;
+  color: lightseagreen;
+}
+.userscontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer {
+  font-size: 30px;
+}
+.husers {
+  font-size: 40px;
+  color: #4900DF;
+}
