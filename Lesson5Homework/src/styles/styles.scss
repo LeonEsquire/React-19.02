@@ -26,3 +26,34 @@ a {
   font-size: 40px;
   color: #4900DF;
 }
+.userpostscontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.userpost {
+  width: 450px;
+  font-size: 22px;
+  border: 3px solid #9080DF;
+  margin: 15px;
+}
+.postAuthor {
+  font-size: 22px;
+  padding-left: 30px;
+}
+.postBody {
+  word-wrap: break-word;
+  text-align: center;
+}
+.postcontact {
+  font-size: 16px;
+  color: #DF0100;
+  text-align: right;
+}
+.usercomment {
+  width: 400px;
+  border: 2px solid cornflowerblue;
+  margin: 2px;
+  padding: 2px;
+  text-align: center;
+}

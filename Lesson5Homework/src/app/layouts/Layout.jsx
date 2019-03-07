@@ -16,6 +16,8 @@ export default class Layout extends React.Component {
         <Menu brand={this.brand}>
           <MenuItem href="/" active={this.compareLoc("/")}>Главная</MenuItem>
           <MenuItem href="/users" active={this.compareLoc("/users")}>Пользователи</MenuItem>
+          <MenuItem href="/posts" active={this.compareLoc("/posts")}>Посты</MenuItem>
+          <MenuItem href="/comments" active={this.compareLoc("/comments")}>Комментарии</MenuItem>
         </Menu>
         <div className="actionBody">
           {this.props.children}

@@ -9,15 +9,16 @@ export default class User extends React.Component {
     };
   }
   componentDidMount() {
-    axios
-      .get(`https://jsonplaceholder.typicode.com/users/${this.props.params.id}`)
+    axios.get(`https://jsonplaceholder.typicode.com/users/${this.props.params.id}`)
       .then(response => {
         this.setState({ user: response.data });
       });
   }
   render() {
     return (
-      <div>{this.state.user ? <UserProfile {...this.state.user} /> : null}</div>
+      <div>
+        {this.state.user ? <UserProfile {...this.state.user} /> : null}
+      </div>
     );
   }
 }
