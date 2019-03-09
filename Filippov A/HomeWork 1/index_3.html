@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>React Home Work 1</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<h4>Необходимо написать иерархию классов вида:<br>
+		Human -> Employee -> Developer<br>
+		Human -> Employee -> Manager<br>
+		Каждый Менеджер (Manager) должен иметь внутренний массив своих сотрудников
+		(разработчиков), а также методы по удалению/добавлению разработчиков.
+		Каждый Разработчик (Developer) должны иметь ссылку на Менеджера и методы для
+		изменения менеджера (имеется ввиду возможность назначить другого менеджера).
+		У класса Human должны быть следующие параметры: name (строка), age (число),
+		dateOfBirth (строка или дата)
+		У класса Employee должны присутствовать параметры: salary (число), department
+		(строка)
+		В классе Human должен присутствовать метод displayInfo, который возвращает строку
+		со всеми параметрами экземпляра Human.
+		В классе Employee должен быть реализовать такой же метод (displayInfo), который
+		вызывает базовый метод и дополняет его параметрами из экземпляра Employee
+		Чтобы вызвать метод базового класса, необходимо внутри вызова метода displayInfo
+		класса Employee написать: super.displayInfo(), это вызовет метод disaplyInfo класс
+		Human и вернет строку с параметрами Human'a.</h4>
+
+	<a href="index.html" class="button dark_grey">На главную</a>
+
+	<script>
+		class Human {
+			constructor(name, age, dateOfBirth) {
+				this.name = name;
+				this.age = age;
+				this.dateOfBirth = dateOfBirth;
+			}
+
+			displayInfo() {
+				console.log({
+					name: this.name,
+					age: this.age,
+					dateOfBirth: this.dateOfBirth
+				});
+			}
+		}
+
+		class Employee extends Human {
+			constructor(name, age, dateOfBirth, salary, department) {
+				super(name, age, dateOfBirth);
+				this.salary = salary;
+				this.department = department;
+			}
+
+			displayInfo() {
+				console.log({
+					name: this.name,
+					age: this.age,
+					dateOfBirth: this.dateOfBirth,
+					salary: this.salary,
+					department: this.department
+				});
+			}
+		}
+
+		class Developer extends Employee {
+			constructor(name, age, dateOfBirth, salary, department, manager) {
+				super(name, age, dateOfBirth, salary, department);
+				this.manager = manager;
+			}
+
+			changeManager(manager) {
+				this.manager = manager;
+			}
+
+			displayInfo() {
+				console.log({
+					name: this.name,
+					age: this.age,
+					dateOfBirth: this.dateOfBirth,
+					salary: this.salary,
+					department: this.department,
+					manager: this.manager
+				});
+			}
+		}
+
+		class Manager extends Employee {
+			constructor(name, age, dateOfBirth, salary, department, employees) {
+				super(name, age, dateOfBirth, salary, department);
+				this.employees = employees;
+			}
+
+			addEmployee(employee) {
+				this.employees.push(employee);
+			}
+
+			removeEployee(pos) {
+				this.employees.splice(pos);
+			}
+
+			displayInfo() {
+				console.log({
+					name: this.name,
+					age: this.age,
+					dateOfBirth: this.dateOfBirth,
+					salary: this.salary,
+					department: this.department,
+					employees: this.employees
+				});
+			}
+		}
+
+		const manager1 = new Manager('Артем', 21, '01.02.1998', 3000, 'Центральный', []);
+		const manager2 = new Manager('Анна', 30, '01.01.1988', 5000, 'Центральный', []);
+		const employee1 = new Developer('Акакий', 32, '03.03.1986', 2400, 'Разработка', manager1);
+		const employee2 = new Developer('Артемида', 25, '03.07.1994', 3700, 'Разработка', manager2);
+		console.log('Решение задания 3:');
+		manager1.addEmployee(employee1);
+		manager2.addEmployee(employee2);
+		manager1.removeEployee(0);
+		manager2.addEmployee(employee1);
+		manager1.displayInfo();
+		employee2.changeManager(manager2);
+		employee2.displayInfo();
+		manager2.displayInfo();
+		console.log('Была удалена строка:');
+		console.log(employee1);
+
+	</script>
+
+</body>
+
+</html>
