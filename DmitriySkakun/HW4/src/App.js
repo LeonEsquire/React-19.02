@@ -10,9 +10,7 @@ import WelcomeModal from './app/components/WelcomeModal';
 
 
 class App extends React.Component {
-    componentDidMount(){
-        console.log(WelcomeModal);
-    };
+    
 
     render(){
         const postBlog = [
@@ -41,7 +39,8 @@ class App extends React.Component {
 
         return (
             <>
-          <Blog  items = {postBlog}/>
+            <WelcomeModal/>
+            <Blog  items = {postBlog}/>
           </>
         );
     }
