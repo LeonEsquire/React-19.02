@@ -1,0 +1,53 @@
+body,
+hr {
+    margin: 0;
+    padding: 0;
+}
+
+// .i[class*="col"],
+// div[class*="col"] {
+//     padding-left: 0;
+//     padding-right: 0;
+// }
+// .no-gutters UPPER in additional to .row class
+
+.container {
+    padding: 0;
+}
+
+%centralizeH {
+    display: flex;
+    justify-content: center;
+}
+
+%centralizeV {
+    display: flex;
+    align-items: center;
+}
+
+%centralizeFull {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%clearfix {
+    &:after {
+        content: ' ';
+        display: block;
+        clear: both;
+    }
+}
+
+.animationHidden {
+    opacity: 0;
+}
+
+.animationVisible {
+    opacity: 1;
+}
+@font-face {
+    // src: url("../fonts/fontName.ttf");
+    font-family: fontName, monospace;
+}
+$fontVariableSName: fontName, monospace;
