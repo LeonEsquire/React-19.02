@@ -8,7 +8,7 @@ function processUserCaught(id, error) {
 }
 export default function getUser(id) {
   return dispatch => {
-    dispatch(processUser(id))
+    dispatch(processUser(id));
     return axios
         .get(`https://jsonplaceholder.typicode.com/users/${id}`)
         .then(resp => {
