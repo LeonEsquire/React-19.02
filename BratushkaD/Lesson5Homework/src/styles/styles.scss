@@ -1,0 +1,59 @@
+.users {
+  width: 250px;
+  text-align: center;
+  border: 2px solid black;
+  margin: 5px 5px 15px 5px;
+}
+a {
+  text-transform: none;
+  text-decoration: none;
+  font-size: 35px;
+  color: #8B4EDF;
+}
+.to-user {
+  font-size: 20px;
+  color: lightseagreen;
+}
+.userscontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer {
+  font-size: 30px;
+}
+.husers {
+  font-size: 40px;
+  color: #4900DF;
+}
+.userpostscontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.userpost {
+  width: 450px;
+  font-size: 22px;
+  border: 3px solid #9080DF;
+  margin: 15px;
+}
+.postAuthor {
+  font-size: 22px;
+  padding-left: 30px;
+}
+.postBody {
+  word-wrap: break-word;
+  text-align: center;
+}
+.postcontact {
+  font-size: 16px;
+  color: #DF0100;
+  text-align: right;
+}
+.usercomment {
+  width: 400px;
+  border: 2px solid cornflowerblue;
+  margin: 2px;
+  padding: 2px;
+  text-align: center;
+}
