@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>React Home Work 1</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<h4>При помощи генератора написать функцию - анкету, которая запрашивает у
+		пользователя на ввод параметры и передаёт их в генератор. В конце, когда генератор
+		завершается, он должен вернуть все введённые входные параметры в виде объекта.
+		Этот объект нужно вывести в консоли.</h4>
+
+	<a href="index.html" class="button dark_grey">На главную</a>
+
+	<script>
+		var nameEmployee = prompt('Введите имя:', );
+		var ageEmployee = prompt('Введите возраст:', );
+		var sexEmployee = prompt('Введите пол:', );
+
+		function* generateInfo() {
+			console.log(nameEmployee, ageEmployee, sexEmployee);
+			yield nameEmployee;
+			return;
+		};
+
+		const info = generateInfo();
+		const first = info.next();
+		console.log(first);
+
+		var arr = [nameEmployee, ageEmployee, sexEmployee];
+		console.log(arr);
+
+	</script>
+
+</body>
+
+</html>

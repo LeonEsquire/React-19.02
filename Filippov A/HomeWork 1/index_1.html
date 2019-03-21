@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>React Home Work 1</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<h4>Написать функцию loop, которая будет принимать параметры: <br>
+		times (значение по умолчанию = 0), callback (значение по умолчанию = null)<br> и будет в цикле (times раз),
+		вызывать функцию callback. <br>Если функцию не передана, то цикл не должен
+		отрабатывать ни разу. <br>Покажите применение этой функции.</h4>
+
+	<a href="index.html" class="button dark_grey">На главную</a>
+
+	<script>
+		function loop(times = 0, callback = null) {
+
+			if (times > 0 && typeof callback === 'function') {
+
+				for (let i = 0; i !== times; i++) {
+					callback(i + 1);
+				}
+			}
+			/*if (times > 0 && callback && typeof callback === 'function') {
+				for (let i = 0; i !== times; i++) {
+					callback(i + 1);
+				}
+			}*/
+		}
+		console.log(`Решение задания №1:`);
+
+		loop(15, i => {
+			console.log(`Loop ${i} times`);
+		});
+
+		console.log(`Цикл завершен`);
+
+	</script>
+
+
+</body>
+
+</html>
