@@ -1,26 +1,39 @@
-import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import React from 'react';
+import { connect } from 'react-redux';
+
 import User from './User';
+import { fetchUserList } from '../actions/userListActions';
 
-const UsersList = () => {
-  const [userL, setUserL] = useState([]);
+class UsersList extends React.Component {
 
-  useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/users/')
-      .then((response) => {
-        setUserL(response.data);
-        console.log(userL);
-      })
-  }, []);
+  componentDidMount() {
+    this.props.dispatch(fetchUserList())
+  }
 
-  return (
-    { userL } &&
-    <div>
-      <h1>Пользователи</h1>
-      {userL.map((user, index) => <User key={index} {...user} />)}
-    </div>
-  );
+  render() {
+    
 
+    const users = this.props.usersList.map((user, index) => {
+      return <User key={user.id} {...user} />
+    })
+    console.log("this.props.usersList", this.props.usersList);
+    return (
+      !this.props.usersList.length ?
+      <h1>Идет загрузка данных ... </h1>
+      :
+      <div>
+        <h1>Пользователи</h1>
+        {users}
+      </div>
+    );
+  }
 }
 
-export default UsersList;
+function mapStateToProps(state) {
+  console.log(state);
+  return {
+    usersList: state.usersList.list,
+    usersListFetched: state.usersList.fetched
+  }
+}
+export default connect(mapStateToProps)(UsersList) 

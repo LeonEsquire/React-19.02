@@ -2,36 +2,40 @@ import React from 'react';
 import Menu from '../components/Menu';
 import MenuItem from '../components/MenuItem';
 
-const Layout = props => {
 
-  const brand = 'React blog!';
+export default class Layout extends React.Component {
+  constructor(props) {
+    super(props);
+    this.brand = 'React blog!';
+  }
 
-  const isActive = (href) => {
+  isActive(href) {
     return window.location.pathname === href;
   }
 
-  return (
-    <div>
-      <Menu brand={brand}>
-        <MenuItem href="/" active={isActive('/')}>
-          Главная
+  render() {
+    return (
+      <div>
+        <Menu brand={this.brand}>
+          <MenuItem href="/" active={this.isActive('/')}>
+            Главная
           </MenuItem>
-        <MenuItem href="/users" active={isActive('/users')}>
-          Пользователи
+          <MenuItem href="/users" active={this.isActive('/users')}>
+            Пользователи
           </MenuItem>
-      </Menu>
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            {props.children}
+        </Menu>
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              {this.props.children}
+            </div>
           </div>
         </div>
-      </div>
-      <footer className="card-footer">
-        &copy; 2019 React
+        <footer className="card-footer">
+        &copy; 2019
         </footer>
-    </div>
-  );
-}
+      </div>
 
-export default Layout;
+    );
+  }
+}
