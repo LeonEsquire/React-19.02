@@ -3,7 +3,7 @@ import UserProfile from '../components/User';
 import axios from 'axios';
 
 const User = props => {
-  const [userS, setUserS] = useState({});
+  const [userS, setUserS] = useState(null);
 
   useEffect(() => {
     axios.get(`https://jsonplaceholder.typicode.com/users/${props.params.userId}`)
