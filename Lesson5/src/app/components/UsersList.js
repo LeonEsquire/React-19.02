@@ -14,13 +14,14 @@ const UsersList = () => {
   }, []);
 
   return (
-    { userL } &&
+    <>
+    { userL.length && (
     <div>
       <h1>Пользователи</h1>
       {userL.map((user, index) => <User key={index} {...user} />)}
     </div>
-  );
-
+    )}
+</>
 }
 
 export default UsersList;
