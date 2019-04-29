@@ -8,15 +8,14 @@ import MainPage from './app/pages/Main';
 import PageNotFound from './app/pages/PageNotFound';
 import Users from './app/pages/Users';
 import User from './app/pages/User';
-
-import { Provider } from 'react-redux';
-
+import {Provider} from 'react-redux';
+//import store from './store';
 
 const app = document.querySelector('#root');
-import GlobalStore from './app/store'
+
 
 ReactDOM.render(
-	<Provider store={GlobalStore}>
+//	<Provider store={store}>
 	<Router history={browserHistory}>
 		<Route path="/" component={Layout}>
 			<IndexRoute component={MainPage}/>
@@ -26,7 +25,7 @@ ReactDOM.render(
 			<Route path="*" component={PageNotFound}/>
 		</Route>
 	</Router>
-	</Provider>
+	//</Provider>
 	,
 app);
 

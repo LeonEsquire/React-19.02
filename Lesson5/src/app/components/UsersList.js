@@ -1,33 +1,26 @@
 import React from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+
 import User from './User';
+import { fetchUserList } from '../actions/userListActions';
 
-export default class UsersList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: []
-    };
-  }
+class UsersList extends React.Component {
 
-  componentDidMount()
-  {
-    axios.get('https://jsonplaceholder.typicode.com/users/')
-    .then((response) => {
-      this.setState({users: response.data})
-    })
+  componentDidMount() {
+    this.props.dispatch(fetchUserList())
   }
 
   render() {
-    if(!this.state.users.length) {
-      return null;
-    }
+    
 
-    const users = this.state.users.map((user, index) => {
-      return <User key={index} {...user} />
+    const users = this.props.usersList.map((user, index) => {
+      return <User key={user.id} {...user} />
     })
-
+    console.log("this.props.usersList", this.props.usersList);
     return (
+      !this.props.usersList.length ?
+      <h1>Идет загрузка данных ... </h1>
+      :
       <div>
         <h1>Пользователи</h1>
         {users}
@@ -35,3 +28,12 @@ export default class UsersList extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  console.log(state);
+  return {
+    usersList: state.usersList.list,
+    usersListFetched: state.usersList.fetched
+  }
+}
+export default connect(mapStateToProps)(UsersList) 
